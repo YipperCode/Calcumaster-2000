@@ -36,7 +36,7 @@ bool isValidFloat(std::string str){
         valido=false;
     
     for(t=inicio;valido && t<int(str.length());t++){
-        if(str.at(t) == '.') //cambiar la coma por punto
+        if(str.at(t) == '.') 
             contador++;
         if(contador>1){
             t=int(str.length());
@@ -47,7 +47,7 @@ bool isValidFloat(std::string str){
         valido=false;
         
     for(i=inicio; valido && i<int(str.length()); i++){
-        if((str.at(i) == '.')){  //cambiar la coma por punto
+        if((str.at(i) == '.')){ 
             contador++;
             if(contador>1){
                 t=int(str.length());
@@ -244,7 +244,7 @@ void multiplicacionComplejos(){
 * @author Jose Carlos Chaparro Morales
 * @since 2020-05-11
 */
-void divisionComplejos(){//falta manejar la excepcion de que el numerador sea 0
+void divisionComplejos(){
     complex a , b , r;
 
     cout<<"Ingrese el complejo a"<<endl;

@@ -8,14 +8,14 @@ using namespace std;
 
 /**
 * <h2>isValidFloat</h2>
-* La función retorna un valor booleano que responde a si una cadena es un valor flotante válido 
+* La funcion retorna un valor booleano que responde a si una cadena es un valor flotante valido 
 * <p>
-* La función evalua el parámetro str para comprobar que cumple con una serie de características
+* La funcion evalua el parametro str para comprobar que cumple con una serie de caracteristicas
 * que lo definen como un valor flotante
 * </p>
-* @author Luis Raúl Chacón Muñoz
-* @param str Es un argumento de tipo string que será evaluado
-* @return valido Es una variable booleana que establece si el parámetro str es un flotante valido
+* @author Luis Raul Chacon Munoz
+* @param str Es un argumento de tipo string que sera evaluado
+* @return valido Es una variable booleana que establece si el parametro str es un flotante valido
 * @since 2020-05-21
 */
 bool isValidFloat(std::string str){
@@ -25,7 +25,7 @@ bool isValidFloat(std::string str){
     if(str.length() == 0)
         valido=false;
 
-    if(str.length() == 1 && str.at(0) == '.')
+    if(str.length() == 1 && str.at(0) == '.') //cambiar la coma por punto
         valido = false;
         
     if(str.at(0) == '-' || str.at(0)=='+'){
@@ -36,7 +36,7 @@ bool isValidFloat(std::string str){
         valido=false;
     
     for(t=inicio;valido && t<int(str.length());t++){
-        if(str.at(t) == '.')
+        if(str.at(t) == '.') //cambiar la coma por punto
             contador++;
         if(contador>1){
             t=int(str.length());
@@ -47,7 +47,7 @@ bool isValidFloat(std::string str){
         valido=false;
         
     for(i=inicio; valido && i<int(str.length()); i++){
-        if((str.at(i) == '.')){
+        if((str.at(i) == '.')){  //cambiar la coma por punto
             contador++;
             if(contador>1){
                 t=int(str.length());
@@ -61,14 +61,14 @@ bool isValidFloat(std::string str){
 
 /**
 * <h2>complex</h2>
-* Es una estructura para el manejo de números complejos por la Calcumaster2000 
+* Es una estructura para el manejo de numeros complejos por la Calcumaster2000 
 * <p>
-* La estructura tiene un constructor que inicializa la parte real e imaginaria de un numero complejo. Además,
-* sobrecarga los operadores de operaciones matemáticas bÃ¡sicas y de flujo para que puedan ser utilizados en
+* La estructura tiene un constructor que inicializa la parte real e imaginaria de un numero complejo. Ademas,
+* sobrecarga los operadores de operaciones matematicas bA!sicas y de flujo para que puedan ser utilizados en
 * los complejos. 
 * </p>
-* @author Omar Alonso Escápita Chacón
-* @author José Carlos Chaparro Morales
+* @author Omar Alonso Escapita Chacon
+* @author Jose Carlos Chaparro Morales
 * @since 2020-05-11
 */
 struct complex{
@@ -168,11 +168,11 @@ struct complex{
 
 /**
 * <h2>sumaCompejos</h2>
-* El procedimiento suma dos números complejos. 
+* El procedimiento suma dos numeros complejos. 
 * <p>
-* Se pide al usuario que ingrese dos números de tipo complex y luego se suman.
+* Se pide al usuario que ingrese dos numeros de tipo complex y luego se suman.
 * </p>
-* @author Omar Alonso Escápita Chacón
+* @author Omar Alonso Escapita Chacon
 * @since 2020-05-11
 */
 void sumaComplejos(){
@@ -190,11 +190,11 @@ void sumaComplejos(){
 
 /**
 * <h2>restaCompejos</h2>
-* El procedimiento resta dos números complejos. 
+* El procedimiento resta dos numeros complejos. 
 * <p>
-* Se pide al usuario que ingrese dos números de tipo complex y luego se realiza la resta.
+* Se pide al usuario que ingrese dos numeros de tipo complex y luego se realiza la resta.
 * </p>
-* @author Omar Alonso Escápita Chacón
+* @author Omar Alonso Escapita Chacon
 * @since 2020-05-11
 */
 void restaComplejos(){
@@ -215,9 +215,9 @@ void restaComplejos(){
 * <h2>multiplicacionCompejos</h2>
 * El procedimiento multiplica dos numeros complejos. 
 * <p>
-* Se pide al usuario que ingrese dos numeros de tipo complex y luego se realiza la multiplicación.
+* Se pide al usuario que ingrese dos numeros de tipo complex y luego se realiza la multiplicacion.
 * </p>
-* @author Omar Alonso Escápita Chacón
+* @author Omar Alonso Escapita Chacon
 * @since 2020-05-11
 */
 void multiplicacionComplejos(){
@@ -236,12 +236,12 @@ void multiplicacionComplejos(){
 
 /**
 * <h2>divisionCompejos</h2>
-* El procedimiento divide dos números complejos. 
+* El procedimiento divide dos numeros complejos. 
 * <p>
-* Se pide al usuario que ingrese dos numeros de tipo complex y luego se realiza la división.
+* Se pide al usuario que ingrese dos numeros de tipo complex y luego se realiza la division.
 * </p>
-* @author Omar Alonso Escápita Chacón
-* @author José Carlos Chaparro Morales
+* @author Omar Alonso Escapita Chacon
+* @author Jose Carlos Chaparro Morales
 * @since 2020-05-11
 */
 void divisionComplejos(){//falta manejar la excepcion de que el numerador sea 0

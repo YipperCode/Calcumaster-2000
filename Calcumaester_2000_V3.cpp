@@ -81,7 +81,7 @@ int main(){
     int iopcionmenu1, iopcionmenusimple, iopcionmenucomplejo, iopcionmenufrac, iopcionmenutri, isimple;
     bool bopcionmenu1 = true, bopcionmenusimple = false, bopcionmenucomplejo = false, bopcionmenufrac = false, bopcionmenutri = false, bsimple=false;
 
-    cout << "Calculmaster v2000.2"<< endl;
+    cout << "Calculmaster 2000 V3"<< endl;
 
     do{
         try{

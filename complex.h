@@ -141,7 +141,7 @@ struct complex{
                 in >> imaginarios;
 
                 if( !isValidFloat(imaginarios) )
-                    throw "Numero inválido, reingrese la parte imaginaria";
+                    throw "Número inválido, reingrese la parte imaginaria";
 
                 c.imag = stof(imaginarios);
 

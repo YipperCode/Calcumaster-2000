@@ -127,7 +127,7 @@ struct complex{
                 in >> reals;
 
                 if( !isValidFloat(reals) )
-                    throw "Numero inválido, reingrese la parte real";
+                    throw "Número inválido, reingrese la parte real";
 
                 c.real = stof(reals);
             }catch(const char* invalidnumber){

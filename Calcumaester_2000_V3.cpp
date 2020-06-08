@@ -16,8 +16,6 @@
 * @since 2020-05-10
 */
 
-//Proyecto Chido
-//TODO: EVITAR OVERFLOW
 
 //#include <iostream>
 #include <stdlib.h>
@@ -77,9 +75,9 @@ int main(){
 
     void (*ptrfunmenus[4])(void) = {displayMenuSimple, displayMenuComplejos, displaymenuFracciones, displayMenuTrigonometricas};
     
-    string opcionmenu1, opcionmenusimple, opcionmenucomplejo, opcionmenufrac, opcionmenutri, simple, factoria;
-    int iopcionmenu1, iopcionmenusimple, iopcionmenucomplejo, iopcionmenufrac, iopcionmenutri, isimple;
-    bool bopcionmenu1 = true, bopcionmenusimple = false, bopcionmenucomplejo = false, bopcionmenufrac = false, bopcionmenutri = false, bsimple=false;
+    string opcionmenu1;
+    int iopcionmenu1;
+    bool bopcionmenu1 = true;
 
     cout << "Calculmaster 2000 V3"<< endl;
 
@@ -509,17 +507,15 @@ float *crearArreglo(string stroperacion, int &nValida){
 
     string n, valor;
     float *arreglo=NULL;
-    //int nValida;
-    
     
     do{
         try {
             cout << "Dame la cantidad de números a " << stroperacion <<": ";
             cin >> n;
             if (!isValidInt(n))
-				throw 1;
-			if ((stoi(n))<1)
-				throw 2;
+		throw 1;
+	    if ((stoi(n))<1)
+		throw 2;
         }
 
         catch(int excepcionEnteroNoValido){
@@ -641,7 +637,7 @@ void multiplicacionSimple(){
 * @exception excepcionNumerador  Esta excepcion es lanzada siempre que el numerador recibe un caracter no numerico
 * @exception excepcionDenominador Esta excepcion es lanzada siempre que el denominador recibe un caracter no numerico
 *                                 o es 0
-* @author Omar Alonso Escapita Chacon
+* @author Omar Alonso Escápita Chacón
 * @since 2020-05-13
 */
 void divisionSimple(){
@@ -664,7 +660,6 @@ void divisionSimple(){
             cout << "Error, valor " << excepcionNumerador << " inválido." << endl;
             
             cout << "Vuelve a ingresar el numerador: ";
-            continue;
         }
     }
 
@@ -684,7 +679,6 @@ void divisionSimple(){
             cout << "Error, división entre " << excepcionDenominador << " inválida." << endl;
             denominador=0;
             cout << "Vuelve a ingresar el denominador: ";
-            continue;
         }
         
     }
@@ -812,8 +806,16 @@ void raiz(void){
 */
 long double factorial(int n){
     return n==0 ? 1 : n*factorial(n-1);
-    //TODO: EVITAR OVERFLOW
 }
+/**
+* <h2>factorial</h2>
+* Esta procedimiento se verifica el párametro pasado a la función factorial y la invoca
+* <p>
+* Esta se verifica mediante el manejo de excepciones que el párametro pasado a la función factorial sea válido
+* </p>
+* @author Jose Chaparro
+* @since 2020-05-12
+*/
 void invofact(void){
     string factoria;
     int factorialValido=0;
@@ -837,6 +839,17 @@ void invofact(void){
     
 }
 
+/**
+* <h2>factorial</h2>
+* Este procedimiento calcula el logaritmo base n de x y lo muestra en pantalla
+* <p>
+* Esta se verifica mediante el manejo de excepciones que los valores ingresados sean
+* correctos y se calcula el logaritmo base n de x y lo muestra en pantalla
+* </p>
+* @author Jose Chaparro
+* @author Juan Luis Del Valle Sotelo
+* @since 2020-05-12
+*/
 void doublelog(void){
     float base, x;
     string bases, xs;
@@ -873,12 +886,22 @@ void doublelog(void){
     cout << "log base " << base << " de " << x << " = " << (float)(log(x) / log(base)) << endl;
 }
 
+/**
+* <h2>factorial</h2>
+* Este procedimiento calcula el logaritmo natural de x y lo muestra en pantalla
+* <p>
+* Esta se verifica mediante el manejo de excepciones que los valores ingresados sean
+* correctos y se calcula el logaritmo natural x y lo muestra en pantalla
+* </p>
+* @author Jose Chaparro
+* @author Juan Luis Del Valle Sotelo
+* @since 2020-05-12
+*/
 void natlog(void){
     double x;
     string xs;
     cout << "Ingrese el número para calcular el logaritmo natural" << endl;
     
-    //TODO: Evitar ciclo por "F"
     do {
     	cin >> xs;
     	try {
@@ -895,7 +918,7 @@ void natlog(void){
     cout << "Ln("<<x<<") = " << log(x) << endl;
 }
 
-void formulaGeneral(){
+/*void formulaGeneral(){
     //Se pedira los valores de la formula:
     //axA2 + bx + c;
     //Y despues se utilizara la formula general
@@ -930,4 +953,4 @@ void formulaGeneral(){
     }while(true);
     
     
-}
+}*/

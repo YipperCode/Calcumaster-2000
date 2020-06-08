@@ -9,13 +9,13 @@ using namespace std;
 
 /**
 * <h2>isValidInt</h2>
-* Esta funciÃ³n determina si el valor introducido es un entero válido y regresa una variable boolean dependiendo de la condición anterior.
+* Esta funciA3n determina si el valor introducido es un entero valido y regresa una variable boolean dependiendo de la condicion anterior.
 * <p>
-* Esta función permite saber si un caracter es un entero válido, ya sea negativo, 0 o positivo.
+* Esta funcion permite saber si un caracter es un entero valido, ya sea negativo, 0 o positivo.
 * </p>
-* @author Raymundo Cornejo García
-* @param numeroEnCadena Es el caracter el cuál se va a determinar si es un entero válido, debe usarse una variable string.
-* @return bool isValidInt Regresa un valor booleano que determina si el caracter es un entero válido.
+* @author Raymundo Cornejo Garcia
+* @param numeroEnCadena Es el caracter el cual se va a determinar si es un entero valido, debe usarse una variable string.
+* @return bool isValidInt Regresa un valor booleano que determina si el caracter es un entero valido.
 * @since 2020-04-28
 */
 bool isValidInt(string numeroEnCadena){
@@ -48,12 +48,12 @@ bool isValidInt(string numeroEnCadena){
 * <h2>fraccion</h2>
 * Es una estructura para el manejo de fracciones por la Calcumaster2000 
 * <p>
-* La estructura tiene un constructor que inicializa el numerador y el denominador de una fracción. Además,
-* sobrecarga los operadores de operaciones matemáticas básicas y de flujo para que puedan ser utilizados en
+* La estructura tiene un constructor que inicializa el numerador y el denominador de una fraccion. Ademas,
+* sobrecarga los operadores de operaciones matematicas basicas y de flujo para que puedan ser utilizados en
 * las fracciones. 
 * </p>
 * @author Juan Luis Del Valle Sotelo
-* @author José Carlos Chaparro Morales
+* @author Jose Carlos Chaparro Morales
 * @since 2020-05-11
 */
 struct fraccion{
@@ -119,7 +119,7 @@ struct fraccion{
 	friend std::ostream& operator << (std::ostream& os,fraccion& obj){
         
         if(obj.up == 0 )
-            cout<<"0";
+            cout<<"0\n";
 
         else
             cout<<obj.up<<"/"<<obj.down<<endl;
@@ -139,7 +139,7 @@ struct fraccion{
                 obj.up = stoi(numeradors);
             }
             catch (int &numerador_invalido){
-                cout<<"Error, el nÃºmero ingresado debe ser un numero entero \n";
+                cout<<"Error, el nÃºmero ingresado debe ser un nÃºmero entero \n";
             }
         }
         while (!isValidInt(numeradors));
@@ -174,8 +174,8 @@ struct fraccion{
 * <h2>sumaFraccion</h2>
 * Este procedimiento imprime la suma de dos fracciones.
 * <p>
-* Procedimiento que pide dos fracciones, es decir el numerador y denominador de cada fucnión para así sumarlas mediante la
-* carga de operadores en la estructura fracción, para así poder imprimir dicho resultado.
+* Procedimiento que pide dos fracciones, es decir el numerador y denominador de cada fucnion para asi sumarlas mediante la
+* carga de operadores en la estructura fraccion, para asi poder imprimir dicho resultado.
 * </p>
 * @author Juan Luis Del Valle Sotelo
 * @author Oscar Ariel Quintana Merino
@@ -192,15 +192,15 @@ void sumaFraccion(){
 
     fraccionr = fraccion1 + fraccion2;
 
-    cout<<"a + b = "<<fraccionr<<endl;
+    cout<<"a + b = "<<fraccionr<<"Lo que es equivalente a: "<< (double)fraccionr.up/(double)fraccionr.down << endl;
 }
 
 /**
 * <h2>restaFraccion</h2>
 * Este procedimiento imprime la resta de dos fracciones.
 * <p>
-* Procedimiento que pide dos fracciones, es decir el numerador y denominador de cada fucnión para así restarlas mediante la
-* carga de operadores en la estructura fracción, para así poder imprimir dicho resultado.
+* Procedimiento que pide dos fracciones, es decir el numerador y denominador de cada fucnion para asi restarlas mediante la
+* carga de operadores en la estructura fraccion, para asi poder imprimir dicho resultado.
 * </p>
 * @author Juan Luis Del Valle Sotelo
 * @author Oscar Ariel Quintana Merino
@@ -209,22 +209,22 @@ void sumaFraccion(){
 void restaFraccion(){
     fraccion fraccion1, fraccion2,fraccionr;
     
-    cout<<"Ingrese la fraccion a"<<endl;
+    cout<<"Ingrese la fracciÃ³n a"<<endl;
     cin>>fraccion1;
-    cout<<"Ingrese la fraccion b"<<endl;
+    cout<<"Ingrese la fracciÃ³n b"<<endl;
     cin>>fraccion2;
 
     fraccionr = fraccion1 - fraccion2;
 
-    cout<<"a - b = "<<fraccionr<<endl;
+    cout<<"a - b = "<<fraccionr<<"Lo que es equivalente a: "<< (double)fraccionr.up/(double)fraccionr.down << endl;
 }  
 
 /**
 * <h2>multiplicacionFraccion</h2>
-* Este procedimiento imprime la multiplicación de dos fracciones.
+* Este procedimiento imprime la multiplicacion de dos fracciones.
 * <p>
-* Procedimiento que pide dos fracciones, es decir el numerador y denominador de cada fucnión para así multiplicarlas mediante la
-* carga de operadores en la estructura fracción, para así poder imprimir dicho resultado.
+* Procedimiento que pide dos fracciones, es decir el numerador y denominador de cada fucnion para asi multiplicarlas mediante la
+* carga de operadores en la estructura fraccion, para asi poder imprimir dicho resultado.
 * </p>
 * @author Juan Luis Del Valle Sotelo
 * @author Oscar Ariel Quintana Merino
@@ -233,22 +233,22 @@ void restaFraccion(){
 void multiplicacionFraccion(){
     fraccion fraccion1, fraccion2,fraccionr;
     
-    cout<<"Ingrese la fraccion a"<<endl;
+    cout<<"Ingrese la fracciÃ³n a"<<endl;
     cin>>fraccion1;
-    cout<<"Ingrese la fraccion b"<<endl;
+    cout<<"Ingrese la fracciÃ³n b"<<endl;
     cin>>fraccion2;
 
     fraccionr = fraccion1 * fraccion2;
 
-    cout<<"a * b = "<<fraccionr<<endl;
+    cout<<"a * b = "<<fraccionr<<"Lo que es equivalente a: "<< (double)fraccionr.up/(double)fraccionr.down << endl;
 }
 
 /**
 * <h2>divisionFraccion</h2>
-* Este procedimiento imprime la división de dos fracciones.
+* Este procedimiento imprime la division de dos fracciones.
 * <p>
-* Procedimiento que pide dos fracciones, es decir el numerador y denominador de cada fucnión para así dividirlas mediante la
-* carga de operadores en la estructura fracción, para así poder imprimir dicho resultado.
+* Procedimiento que pide dos fracciones, es decir el numerador y denominador de cada fucnion para asi dividirlas mediante la
+* carga de operadores en la estructura fraccion, para asi poder imprimir dicho resultado.
 * </p>
 * @author Juan Luis Del Valle Sotelo
 * @author Oscar Ariel Quintana Merino
@@ -256,15 +256,16 @@ void multiplicacionFraccion(){
 */
 void divisionFraccion(){
     fraccion fraccion1, fraccion2,fraccionr;
-    
-    cout<<"Ingrese la fraccion a"<<endl;
+    cout<<"Ingrese la fracciÃ³n a"<<endl;
     cin>>fraccion1;
-    cout<<"Ingrese la fraccion b"<<endl;
+    do{
+    cout<<"Ingrese la fracciÃ³n b"<<endl;
     cin>>fraccion2;
-
+    if (fraccion2.up==0) cout << "OperaciÃ³n no definida, divisiÃ³n entre cero\n";
+	}while (fraccion2.up==0);
     fraccionr = fraccion1 / fraccion2;
 
-    cout<<"a / b = "<<fraccionr<<endl;
+    cout<<"a / b = "<<fraccionr<<"Lo que es equivalente a: "<< (double)fraccionr.up/(double)fraccionr.down << endl;
 }
 
 #endif

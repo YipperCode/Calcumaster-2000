@@ -4,13 +4,13 @@
 * Este programa permite calcular diferentes tipos de operaciones.
 * <p>
 * Esta calcumaster realiza una gran variedad de operaciones, desde operaciones simples como lo son
-* las sumas o las restas hasta operaciones como sumas, restas, o divisiones con números complejos.
+* las sumas o las restas hasta operaciones como sumas, restas, o divisiones con numeros complejos.
 * </p>
-* @author Luis Raúl Chacón Muñoz
-* @author José Carlos Chaparro Morales
+* @author Luis Raul Chacon Munoz
+* @author Jose Carlos Chaparro Morales
 * @author Juan Luis Del Valle Sotelo
-* @author Omar Alonso Escápita Chacón
-* @author Johann Lozano Enríquez 
+* @author Omar Alonso Escapita Chacon
+* @author Johann Lozano Enriquez 
 * @author Oscar Ariel Quintana Merino
 * @return una experiencia inolvidable, como ir al six flags, pero en cuarentena
 * @since 2020-05-10
@@ -48,31 +48,31 @@ void exponente(void);
 void raiz(void);
 long double factorial(int);
 void invofact(void);
-void seno(double &argumentoacalcular);
-void coseno(double &argumentoacalcular);
-void tangente(double &argumentoacalcular);
-void secante(double &argumentoacalcular);
-void cosecante(double &argumentoacalcular);
-void cotangente(double &argumentoacalcular);
-void seninv(double &argumentoacalcular);
-void cosinv(double &argumentoacalcular);
-void taninv(double &argumentoacalcular);
+void seno(double argumentoacalcular, string & argumentos, bool rad);
+void coseno(double argumentoacalcular, string & argumentos, bool rad);
+void tangente(double argumentoacalcular, string & argumentos, bool rad);
+void secante(double argumentoacalcular, string & argumentos, bool rad);
+void cosecante(double argumentoacalcular, string & argumentos, bool rad);
+void cotangente(double argumentoacalcular, string & argumentos, bool rad);
+void seninv(double argumentoacalcular, string & argumentos, bool rad);
+void cosinv(double argumentoacalcular, string & argumentos, bool rad);
+void taninv(double argumentoacalcular, string & argumentos, bool rad);
 
 /**
 * <h2>Main</h2>
-Llamadas a las funciones para resolver las operaciones matemáticas, 
+Llamadas a las funciones para resolver las operaciones matematicas, 
 <p>
-* Descricpión más específica de lo que hace la función
+* Descricpion mas especifica de lo que hace la funcion
 * @author gamertag
 * @exception
-* @param name descricpión breve
-* @return tipo de dato descricpión de lo que regresa
+* @param name descricpion breve
+* @return tipo de dato descricpion de lo que regresa
 * @since 2020-mm-dd
 */
 
 int main(){
 
-    setlocale(LC_ALL, "spanish");
+    setlocale(LC_CTYPE, "spanish");
     //locale::global(std::locale("spanish"));
 
     void (*ptrfunmenus[4])(void) = {displayMenuSimple, displayMenuComplejos, displaymenuFracciones, displayMenuTrigonometricas};
@@ -89,8 +89,10 @@ int main(){
 
             cin >> opcionmenu1;
             
-            if (!isValidInt(opcionmenu1))				
-                throw "Ingrese una opción válida";
+            if (!isValidInt(opcionmenu1))			
+                throw "Ingrese una opciÃ³n vÃ¡lida";
+            if ((stoi(opcionmenu1))<1 || (stoi(opcionmenu1))>5)
+            	throw "Ingrese un nÃºmero vÃ¡lido";
 
             iopcionmenu1=stoi(opcionmenu1);
             bopcionmenu1=false;
@@ -136,28 +138,28 @@ int main(){
 <p>
 * Este procedimiento muestra al usuario, las opciones principales de la Calcumaster2000,
 * presentandole los diferentes menus a los que puede acceder
-* @author Luis Chacón
+* @author Luis Chacon
 * @since 2020-13-05
 */
 
 void displayMenuTipo(){
-    cout<< "\n \tMENÚ PRINCIPAL\n" << endl;
+    cout<< "\n \tMENU PRINCIPAL\n" << endl;
 
-    cout<< "Seleccione el tipo de operación: " << endl
+    cout<< "Seleccione el tipo de operaciÃ³n: " << endl
         << "1.- Operaciones simples" << endl
-        << "2.- Operaciones con números complejos" << endl
+        << "2.- Operaciones con nÃºmeros complejos" << endl
         << "3.- Operaciones con fracciones" << endl
-        << "4.- Funciones trigonométricas" << endl
+        << "4.- Funciones trigonomÃ©tricas" << endl
         << "5.- SALIR" << endl
-        << "Opción: " <<endl;
+        << "OpciÃ³n: " <<endl;
 }
 
 /**
 * <h2>displayMenuSimple</h2>
 <p>
-* Este procedimiento despliega el menú de las 9 operaciones simples que se pueden seleccionar en la consola
+* Este procedimiento despliega el menu de las 9 operaciones simples que se pueden seleccionar en la consola
 </p>
-* @author Luis Chacón
+* @author Luis Chacon
 * @since 2020-05-13
 */
 void displayMenuSimple(){
@@ -168,29 +170,29 @@ void displayMenuSimple(){
     
     do{
     cout<< "\n\tOPERACIONES SIMPLES\n" << endl
-        << "Seleccione el tipo de operación SIMPLE:" << endl
+        << "Seleccione el tipo de operaciÃ³n SIMPLE:" << endl
         << "1.- Suma" << endl
         << "2.- Resta" << endl
-        << "3.- Multiplicación" << endl
-        << "4.- División" << endl
+        << "3.- MultiplicaciÃ³n" << endl
+        << "4.- DivisiÃ³n" << endl
         << "5.- Potencia" << endl
-        << "6.- Raíz"<< endl
+        << "6.- RaÃ­z"<< endl
         << "7.- Factorial" << endl
         << "8.- Logaritmo" <<endl
         << "9.- Logaritmo natural"<<endl
         <<"10.- REGRESAR"<<endl
-        <<"Opción: ";
+        <<"OpciÃ³n: ";
 
         do{
             try{
             cin >> opcionmenusimple;
                         
-            if (isValidInt(opcionmenusimple) && (stoi(opcionmenusimple)>=1 || stoi(opcionmenusimple)<=10)){
+            if (isValidInt(opcionmenusimple) && (stoi(opcionmenusimple)>=1 && stoi(opcionmenusimple)<=10)){
                 novalidopcionmenusimple = false;
                 iopcionmenusimple = stoi(opcionmenusimple);
             }
             else
-                throw "Ingrese un caracter válido";
+                throw "Ingrese un caracter vÃ¡lido";
             
             
             }catch(const char *errmenu1){
@@ -210,7 +212,7 @@ void displayMenuSimple(){
 <p>
 * Este procedeimiento despliega el menu de las 4 operaciones que se pueden realizar con los numeros complejos
 * para que el usuario seleccione la que quiere llevar a cabo
-* @author José Chaparro
+* @author Jose Chaparro
 * @since 2020-05-13
 */
 void displayMenuComplejos(void){
@@ -220,13 +222,13 @@ void displayMenuComplejos(void){
     bool novalidocom = true;
     
     do{
-        cout<< "OERACIONES CON COMPLEJOS\n" << endl
+        cout<< "\n \tOPERACIONES CON COMPLEJOS\n" << endl
             << "1.- Suma de Complejos" << endl
             << "2.- Resta de Complejos" << endl
-            << "3.- Multiplicación de Complejos" << endl
-            << "4.- División de Complejos" << endl
+            << "3.- MultiplicaciÃ³n de Complejos" << endl
+            << "4.- DivisiÃ³n de Complejos" << endl
             << "5.- REGRESAR" << endl
-            << "Opción: ";
+            << "OpciÃ³n: ";
 
         do{
             cin >> opcionscomp;
@@ -238,7 +240,7 @@ void displayMenuComplejos(void){
                     (*ptrcomp[opcioncom-1])();
                     
             }else{
-                cout<<"Reingrese la opción";
+                cout<<"Reingrese la opciÃ³n: ";
             }
             
         }while(novalidocom);
@@ -251,10 +253,10 @@ void displayMenuComplejos(void){
 /**
 * <h2>displayMenuFracciones</h2>
 <p>
-* Este procedimiento despliega el menú de las 4 operaciones que se pueden realizar con fracciones
+* Este procedimiento despliega el menu de las 4 operaciones que se pueden realizar con fracciones
 * para que el usuario seleccione la que quiere llevar a cabo
 </p>
-* @author José Chaparro
+* @author Jose Chaparro
 * @since 2020-05-13
 */
 void displaymenuFracciones(void){
@@ -263,13 +265,13 @@ void displaymenuFracciones(void){
     int opcion;
     bool novalidop = true;
     do{
-        cout<< "OERACIONES CON FRACCIONES\n" << endl
+        cout<< "\n \tOPERACIONES CON FRACCIONES\n" << endl
             << "1.- Suma de Fracciones" << endl
             << "2.- Resta de Fracciones" << endl
-            << "3.- Multiplicación de Fracciones" << endl
-            << "4.- División de Fraccinoes" << endl
+            << "3.- MultiplicaciÃ³n de Fracciones" << endl
+            << "4.- DivisiÃ³n de Fraccinoes" << endl
             << "5.- REGRESAR" << endl
-            << "Opción: ";
+            << "OpciÃ³n: ";
 
         do{
             cin >> opcions;
@@ -281,7 +283,7 @@ void displaymenuFracciones(void){
                     (*ptrfracc[opcion-1])();
                     
             }else{
-                cout<<"Reingrese la opción";
+                cout<<"Reingrese la opciÃ³n: ";
             }
             
         }while(novalidop);
@@ -292,23 +294,23 @@ void displaymenuFracciones(void){
 /**
 * <h2>displayMenuTrigonometricas</h2>
 * <p>
-* Este procedimiento muestra las 9 opciones dentro del menú de las funciones trigonométricas
+* Este procedimiento muestra las 9 opciones dentro del menu de las funciones trigonometricas
 * para que seleccione una opcion y proceda a elaborarla
-* Cuando ya escogió, le pregunta si usará radianes o grados y luego ya calcula la funcion que ingresemos
+* Cuando ya escogio, le pregunta si usara radianes o grados y luego ya calcula la funcion que ingresemos
 * </p>
-* @author José Chaparro
-* @author Luis Chacón
+* @author Jose Chaparro
+* @author Luis Chacon
 * @since 2020-05-13
 */
 void displayMenuTrigonometricas(void){
-    void (*ptrtrig[9])(double&) = {seno, coseno,tangente,cotangente,secante,cosecante,seninv,cosinv,taninv};
+    void (*ptrtrig[9])(double, string &, bool) = {seno, coseno,tangente,cotangente,secante,cosecante,seninv,cosinv,taninv};
     string opcionts, radograd, argumentos;
     int opciont;
     double argumento = 1;
-    bool novalidot = true, bradograd = true, novalidarg = true;
+    bool novalidot = true, bradograd = true, novalidarg = true, radbool=true;
 
     do{
-        cout<< "FUNCIONES TRIGONOMÉTRICAS\n"<<endl;
+        cout<< "\n \tFUNCIONES TRIGONOMÃ‰TRICAS\n"<<endl;
 
         cout<< "1.- Seno" << endl
             << "2.- Coseno" << endl
@@ -319,19 +321,18 @@ void displayMenuTrigonometricas(void){
             << "7.- Sen inverso" << endl
             << "8.- Cos inverso" << endl
             << "9.- Tan inversa" << endl
-            <<"10.- REGRESAR"<<endl;
-            << "Opción: ";
+            <<"10.- REGRESAR"<<endl
+            << "OpciÃ³n: ";
 
         do{
 
             cin >> opcionts;
-
             if(isValidInt(opcionts) && (stoi(opcionts) >= 1 && stoi(opcionts) <= 10 )){
                 novalidot = false;
                 opciont = stoi(opcionts);
                 
                 if(opciont != 10){
-                    cout << "¿Con qué vas a trabajar?" << endl
+                    cout << "Â¿Con quÃ© vas a trabajar?" << endl
                     << "Ingrese 1 para leer el dato en grados" << endl
                     << "Ingrese 2 para leer el dato en radianes" << endl;
 
@@ -355,16 +356,16 @@ void displayMenuTrigonometricas(void){
                                 }
                             
                             }while(novalidarg);
-
+							radbool=true;
                             if(stoi(radograd) == 1){
-                                
-                                argumento *= (M_PI / 180);
+                                radbool=false;
+                                if (opciont<7)
+                                	argumento *= (M_PI/180);
                             }
-
-                            (*ptrtrig[opciont-1])(argumento);
+                            (*ptrtrig[opciont-1])(argumento, argumentos, radbool);
 
                         }else{
-                            cout << "Reingrese la opción" << endl;
+                            cout << "Reingrese la opciÃ³n: " << endl;
                         }
                 
                         
@@ -374,6 +375,7 @@ void displayMenuTrigonometricas(void){
                 }
             
             }
+            else cout << "Reingresa la opciÃ³n: ";
 
         }while(novalidot);
     
@@ -381,58 +383,126 @@ void displayMenuTrigonometricas(void){
 
 }
 
-void seno(double &argumentoacalcular){
+void seno(double argumentoacalcular, string & argumentos, bool rad){
 
-    cout << "sen(" << argumentoacalcular << ") = " << sin(argumentoacalcular) << endl;
+    cout << "sen(" << argumentos << ") = " << sin(argumentoacalcular) << endl;
 }
 
-void coseno(double &argumentoacalcular){
-    cout << "cos(" << argumentoacalcular << ") = " << cos(argumentoacalcular) << endl;
+void coseno(double argumentoacalcular, string & argumentos, bool rad){
+    cout << "cos(" << argumentos << ") = " << cos(argumentoacalcular) << endl;
 }
 
-void tangente(double &argumentoacalcular){
-    cout << "tan(" << argumentoacalcular << ") = " << tan(argumentoacalcular) << endl;
+void tangente(double argumentoacalcular, string & argumentos, bool rad){
+	int argumento;
+	if (rad) {
+		argumento=stof(argumentos)*180/M_PI;
+		if ((argumento+1)%90==0) argumento++;
+		if ((argumento-1)%90==0) argumento--;
+		//cout << "Argumento transformado " << argumento << endl;
+	}
+	else {
+		argumento=stoi(argumentos);
+	}
+	if ((argumento%90==0 && argumento%180!=0))
+		cout << "tan(" << argumentos << ") tiende a infinito";
+	else
+    	cout << "tan(" << argumentos << ") = " << tan(argumentoacalcular) << endl;
 }
 
-void cotangente(double &argumentoacalcular){
-    cout << "sen(" << argumentoacalcular << ") = " << (1.0/tan(argumentoacalcular)) << endl;
+void cotangente(double argumentoacalcular, string & argumentos, bool rad){
+	int argumento;
+	if (rad) {
+		argumento=stof(argumentos)*180/M_PI;
+		if ((argumento+1)%90==0) argumento++;
+		if ((argumento-1)%90==0) argumento--;
+	}
+	else {
+		argumento=stoi(argumentos);
+	}
+	if ((argumento%180==0 || argumento==0))
+		cout << "cot(" << argumentos << ") tiende a infinito";
+	//if (stoi(argumentos)%180==0 || stoi(argumentos)==0)
+	//	cout << "cot(" << argumentos << ") tiende a infinito";
+	else
+    	cout << "cot(" << argumentos << ") = " << (1.0/tan(argumentoacalcular)) << endl;
 }
 
-void secante(double &argumentoacalcular){
-    cout << "sen(" << argumentoacalcular << ") = " << (1.0/cos(argumentoacalcular)) << endl;
+void secante(double argumentoacalcular, string & argumentos, bool rad){
+	int argumento;
+	if (rad) {
+		argumento=stof(argumentos)*180/M_PI;
+		if ((argumento+1)%90==0) argumento++;
+		if ((argumento-1)%90==0) argumento--;
+	}
+	else {
+		argumento=stoi(argumentos);
+	}
+	if ((argumento%90==0 && argumento%180!=0))
+		cout << "sec(" << argumentos << ") tiende a infinito";
+	else
+    	cout << "sec(" << argumentos << ") = " << (1.0/cos(argumentoacalcular)) << endl;
 }
 
-void cosecante(double &argumentoacalcular){
-    cout << "sen(" << argumentoacalcular << ") = " << (1.0/sin(argumentoacalcular)) << endl;
+void cosecante(double argumentoacalcular, string & argumentos, bool rad){
+	int argumento;
+	if (rad) {
+		argumento=stof(argumentos)*180/M_PI;
+		if ((argumento+1)%90==0) argumento++;
+		if ((argumento-1)%90==0) argumento--;
+	}
+	else {
+		argumento=stoi(argumentos);
+	}
+	if ((argumento%180==0 || argumento==0))
+		cout << "csc(" << argumentos << ") tiende a infinito";
+//	if (stoi(argumentos)%180==0 || stoi(argumentos)==0)
+//		cout << "csc(" << argumentos << ") tiende a infinito";
+	else
+    	cout << "csc(" << argumentos << ") = " << (1.0/sin(argumentoacalcular)) << endl;
 }
 
-void seninv(double &argumentoacalcular){
-    cout<<"arcsen("<<argumentoacalcular<<") = "<<asin(argumentoacalcular) << endl;
+void seninv(double argumentoacalcular, string & argumentos, bool rad){
+	//cout << "bool "<<rad<<endl;
+	if (argumentoacalcular > 1 || argumentoacalcular < -1)
+		cout<<"arcsen("<<argumentos<<") No estÃ¡ definido";
+	else{
+		if (!rad) cout << "arcsen("<<argumentos<<") = " << asin(argumentoacalcular)*180/M_PI <<"Â°" << endl;
+    	else
+    		cout<<"arcsen(" << argumentos << ") = " << asin(argumentoacalcular) <<" rad" << endl;
+	}	
 }
 
-void cosinv(double &argumentoacalcular){
-    cout<<"arccos("<<argumentoacalcular<<") = "<<acos(argumentoacalcular) << endl;
+void cosinv(double argumentoacalcular, string & argumentos, bool rad){
+	if (argumentoacalcular > 1 || argumentoacalcular < -1)
+		cout<<"arccos("<<argumentos<<") No estÃ¡ definido";
+	else{
+		if (!rad) cout << "arccos("<<argumentos<<") = " << acos(argumentoacalcular)*180/M_PI <<"Â°" << endl;
+    	else
+    		cout<<"arccos(" << argumentos << ") = " << acos(argumentoacalcular) <<" rad" << endl;
+}
 }
 
-void taninv(double &argumentoacalcular){
-    cout<<"arctan("<<argumentoacalcular<<") = "<<atan(argumentoacalcular) << endl;
+void taninv(double argumentoacalcular, string & argumentos, bool rad){
+    if (!rad) cout << "arctan("<<argumentos<<") = " << atan(argumentoacalcular)*180/M_PI <<"Â°" << endl;
+    	else
+    		cout<<"arctan(" << argumentos << ") = " << atan(argumentoacalcular) <<" rad" << endl;
 }
 /**
 * <h2>crearArreglo</h2>
-* Esta función regresa un arreglo dinámico de números flotantes.
+* Esta funcion regresa un arreglo dinamico de numeros flotantes.
 * <p>
-* La función permite crear un arreglo de los números que se van a sumar, restar o multiplicar, esto se logra
-* pidiendo la cantidad de números a usar y verifica si este número ingraso es un entero válido, para que no
-* haya problema a la hora de crear el arreglo dinámico, adem'as de modificar una variable que recibe como parámetro
-* por referencia, el cual es la cantidad de números a utilizar o el tamaño del arreglo.
+* La funcion permite crear un arreglo de los numeros que se van a sumar, restar o multiplicar, esto se logra
+* pidiendo la cantidad de numeros a usar y verifica si este numero ingraso es un entero valido, para que no
+* haya problema a la hora de crear el arreglo dinamico, adem'as de modificar una variable que recibe como parametro
+* por referencia, el cual es la cantidad de numeros a utilizar o el tamano del arreglo.
 * </p>
 * @author Juan Luis Del Valle Sotelo
-* @exception excepcionEnteroNoValido Esta excepción se lanza cuando un entero no es válido, ya sea que es menor a uno o no sea un caracter numérico
-* @param stroperación Es el tipo de operación que se va a realizar, es una cariable de tipo string que permite mostrar
-* al usuario qué operación está a punto de realizar.
-* @param nValida Es la cantidad de de números o elementos que va a tener el arreglo dinámico, al ser un parámetro por
-* referencia, permite saber el número de elementos inclusive en la función que invoca est función.
-* @return float *crearArreglo Regresa un arreglo dinámico de números flotantes, que fueron introducidos por el usuario.
+* @exception excepcionEnteroNoValido Esta excepcion se lanza cuando un entero no es valido, ya sea que es menor a uno o no sea un caracter numerico
+* @param stroperacion Es el tipo de operacion que se va a realizar, es una cariable de tipo string que permite mostrar
+* al usuario que operacion esta a punto de realizar.
+* @param nValida Es la cantidad de de numeros o elementos que va a tener el arreglo dinamico, al ser un parametro por
+* referencia, permite saber el numero de elementos inclusive en la funcion que invoca est funcion.
+* @return float *crearArreglo Regresa un arreglo dinamico de numeros flotantes, que fueron introducidos por el usuario.
 * @since 2020-05-13
 */
 float *crearArreglo(string stroperacion, int &nValida){
@@ -444,7 +514,7 @@ float *crearArreglo(string stroperacion, int &nValida){
     
     do{
         try {
-            cout << "Dame la cantidad de números a " << stroperacion <<": ";
+            cout << "Dame la cantidad de nÃºmeros a " << stroperacion <<": ";
             cin >> n;
             if (!isValidInt(n))
 				throw 1;
@@ -453,8 +523,8 @@ float *crearArreglo(string stroperacion, int &nValida){
         }
 
         catch(int excepcionEnteroNoValido){
-			if (excepcionEnteroNoValido == 2) cout << "Error, el número ingresado debe ser positivo \n";
-			if (excepcionEnteroNoValido == 1) cout << "Error, el número ingresado debe ser entero \n";
+			if (excepcionEnteroNoValido == 2) cout << "Error, el nÃºmero ingresado debe ser positivo \n";
+			if (excepcionEnteroNoValido == 1) cout << "Error, el nÃºmero ingresado debe ser entero \n";
 		}
 
     }while(!isValidInt(n)||(stoi(n))<1);
@@ -472,14 +542,14 @@ float *crearArreglo(string stroperacion, int &nValida){
 
     for (int i=0; i<nValida; i++){
         try{
-            cout << "Ingresa el valor del número " << i+1 << ": ";
+            cout << "Ingresa el valor del nÃºmero " << i+1 << ": ";
             cin >> valor;
             if (!isValidFloat(valor)) throw 3;
             arreglo[i]=stof(valor);
             
         }
         catch(...){
-            cout << "Error, el número ingresado debe ser válido \n";
+            cout << "Error, el nÃºmero ingresado debe ser vÃ¡lido \n";
             i--;
         }
     }
@@ -491,11 +561,11 @@ float *crearArreglo(string stroperacion, int &nValida){
 /**
 * <h2>sumaSimple</h2>
  <p>
-* El procedimiento suma los n valores introducidos en el apuntador float *sumandos por la función crearArreglo
+* El procedimiento suma los n valores introducidos en el apuntador float *sumandos por la funcion crearArreglo
 * utilizando la variable suma para acumular la sumatoria de los elementos en sumandos
  </p> 
 * @author Juan Luis Del Valle Sotelo
-* @author Johann Lozano Enríquez
+* @author Johann Lozano Enriquez
 * @since 2020-05-13
 */
 void sumaSimple(){
@@ -518,12 +588,12 @@ void sumaSimple(){
 /**
 * <h2>restaSimple</h2>
  <p>
-* El procedimiento resta los n valores introducidos en el apuntador float *restandos por la función 
+* El procedimiento resta los n valores introducidos en el apuntador float *restandos por la funcion 
 * crearArreglo utilizando la variable resta para acumular el resultado de las operaciones en los elementos
 * de restandos
  </p> 
 * @author Juan Luis Del Valle Sotelo
-* @author Johann Lozano Enríquez
+* @author Johann Lozano Enriquez
 * @since 2020-05-13
 */
 void restaSimple(){
@@ -543,12 +613,12 @@ void restaSimple(){
 /**
 * <h2>multiplicacionSimple</h2>
  <p>
-* El procedimiento multiplica los n valores introducidos en el apuntador float *multiplos por la función 
-* crearArreglo utilizando la variable multiplicación para acumular el resultado de las operaciones en los
+* El procedimiento multiplica los n valores introducidos en el apuntador float *multiplos por la funcion 
+* crearArreglo utilizando la variable multiplicacion para acumular el resultado de las operaciones en los
 * elementos de multiplos
  </p> 
 * @author Juan Luis Del Valle Sotelo
-* @author Johann Lozano Enríquez
+* @author Johann Lozano Enriquez
 * @since 2020-05-13
 */
 void multiplicacionSimple(){
@@ -566,12 +636,12 @@ void multiplicacionSimple(){
 * <h2>divisionSimple</h2>
  <p>
 * El procedimiento divide los dos valores introducidos en las variables float numerador y denominador.
-* Utiliza un ciclo para asegurarse de que las variables reciban valores válidos.
+* Utiliza un ciclo para asegurarse de que las variables reciban valores validos.
  </p> 
-* @exception excepcionNumerador  Esta excepción es lanzada siempre que el numerador recibe un caracter no numérico
-* @exception excepcionDenominador Esta excepción es lanzada siempre que el denominador recibe un caracter no numérico
+* @exception excepcionNumerador  Esta excepcion es lanzada siempre que el numerador recibe un caracter no numerico
+* @exception excepcionDenominador Esta excepcion es lanzada siempre que el denominador recibe un caracter no numerico
 *                                 o es 0
-* @author Omar Alonso Escápita Chacón
+* @author Omar Alonso Escapita Chacon
 * @since 2020-05-13
 */
 void divisionSimple(){
@@ -591,7 +661,7 @@ void divisionSimple(){
             numerador = stof(numeradors);
             
         }catch(string excepcionNumerador){
-            cout << "Error, valor " << excepcionNumerador << " inválido." << endl;
+            cout << "Error, valor " << excepcionNumerador << " invÃ¡lido." << endl;
             
             cout << "Vuelve a ingresar el numerador: ";
             continue;
@@ -611,7 +681,7 @@ void divisionSimple(){
             denominador = stof(denominadors);
 
         }catch(string excepcionDenominador){
-            cout << "Error, división entre " << excepcionDenominador << " inválida." << endl;
+            cout << "Error, divisiÃ³n entre " << excepcionDenominador << " invÃ¡lida." << endl;
             denominador=0;
             cout << "Vuelve a ingresar el denominador: ";
             continue;
@@ -622,28 +692,29 @@ void divisionSimple(){
 }
 /**
 * <h2>exponente</h2>
-* Este procedimiento se encarga de elevar un número ingresado por el usuario, a otro igualmente ingresado por el usuario
+* Este procedimiento se encarga de elevar un numero ingresado por el usuario, a otro igualmente ingresado por el usuario
 * <p>
-* El procedimiento evita que el usuario ingrese caracteres invalidos tanto para el coeficiente, como para el exponente de la función.
+* El procedimiento evita que el usuario ingrese caracteres invalidos tanto para el coeficiente, como para el exponente de la funcion.
 * finalmente despliega el resultado en pantalla
 * </p>
-* @author José Chaparro
+* @author Jose Chaparro
 * @since 2020-05-13
 */
 void exponente(void){
-    float coeficiente, exponente;
+    float coeficiente;
+    int exponente;
     string coeficientes, exponentes;
     bool novalidcoef = true , novalidexp = true;
     
     do{
-        cout << "Ingrese el número al cual le quiere aplicar potencia: ";
+        cout << "Ingrese el nÃºmero al cual le quiere aplicar potencia: ";
         cin >> coeficientes;
             
         if(isValidFloat(coeficientes)){
             novalidcoef = false;
             coeficiente = stof(coeficientes);
         }else{
-            cout << "argumento a calcular no válido, reingrese el coeficiente" << endl;
+            cout << "argumento a calcular no vÃ¡lido, reingrese el coeficiente: " << endl;
         }
 
     }while(novalidcoef);
@@ -653,29 +724,36 @@ void exponente(void){
             cin >> exponentes;
             
 
-            if(isValidFloat(exponentes)){
+            if(isValidInt(exponentes)){
                 novalidexp = false;
-                exponente = stof(exponentes);
+                exponente = stoi(exponentes);
             }else{
-                cout << "argumento a calcular no válido, reingrese el exponente" << endl;
+                cout << "exponente no vÃ¡lido, reingrese el exponente: " << endl;
             }
                 
 
             
     }while(novalidexp);
-            
     cout << coeficiente << "^"<<exponente<<" = " << pow(coeficiente,exponente) << endl;
-
+	/*try{
+		if (((exponente%1) !=0) &&  ((exponente%0.5)==0) && ((coeficiente)<0))
+			throw "Error: no se pueden calcular raÃ­ces pares en nÃºmeros negativos";
+		cout << coeficiente << "^"<<exponente<<" = " << pow(coeficiente,exponente) << endl;
+	}
+    catch (const char *exceptionRaizNeg) {
+    	cout << exceptionRaizNeg << "\n ";
+	}
+	*/
 }
 
 /**
 * <h2>raiz</h2>
-* Este procedimiento se encarga de calcular la raíz n de cualquier número
+* Este procedimiento se encarga de calcular la raiz n de cualquier numero
 * <p>
-* El procedimiento evita que el usuario ingrese caracteres inválidos tanto para el coeficiente,
-* como para la raíz de la función. Finalmente despliega el resultado en pantalla
+* El procedimiento evita que el usuario ingrese caracteres invalidos tanto para el coeficiente,
+* como para la raiz de la funcion. Finalmente despliega el resultado en pantalla
 * </p>
-* @author José Chaparro
+* @author Jose Chaparro
 * @since 2020-05-13
 */
 void raiz(void){
@@ -684,43 +762,51 @@ void raiz(void){
     bool novalidroot = true, novalidcoef = true;
     
     do{
-        cout << "Ingrese el número al cual le quiere sacar raíz: ";
+        cout << "Ingrese el nÃºmero al cual le quiere sacar raÃ­z: ";
         cin >> coeficientes;
 
         if(isValidFloat(coeficientes) && stof(coeficientes) >= 0){
             novalidcoef = false;
             coeficiente = stof(coeficientes);
         }else{
-            cout << "argumento a calcular no válido, reingrese el coeficiente" << endl;
+            cout << "argumento a calcular no vÃ¡lido, reingrese el coeficiente: " << endl;
         }
         
     }while(novalidcoef);
 
     do{
-        cout << "Ingrese el número de la raíz: ";
+        cout << "Ingrese el nÃºmero de la raÃ­z: ";
         cin >> raizs;
 
         if(isValidFloat(raizs) && stof(raizs) != 0){
             novalidroot = false;
             raiz = stof(raizs);
         }else{
-            cout << "argumento a calcular no válido, reingrese la raíz" << endl;
+            cout << "argumento a calcular no vÃ¡lido, reingrese la raÃ­z: " << endl;
         }
         
     }while(novalidroot);
     
-    cout << "raíz "<< raiz << " de "<<coeficiente<< " = " << pow(coeficiente, (1/raiz)) << endl;
+    try{
+    	if (coeficiente==0 && raiz<0)
+    		throw "No se pueden calcular raÃ­ces negativas de cero";
+    	cout << "raÃ­z "<< raiz << " de "<<coeficiente<< " = " << pow(coeficiente, (1/raiz)) << endl;
+	}
+	catch (const char *exceptionRaizNeg){
+		cout << exceptionRaizNeg << "\n";
+	}
+    
 }
 /**
 * <h2>factorial</h2>
-* En caso de que el parametro n sea 0, devolverá 1, si no, la función se llama a sí misma
+* En caso de que el parametro n sea 0, devolvera 1, si no, la funcion se llama a si misma
 * <p>
-* Esta función implementa la recursividad utilizando al mismo tiempo el operador condicional ?:
-* que se encarga de devolver el resultado 1 cuando n sea igual a 0 y de llamarse a sí misma
-* para así multiplicarse por sí misma
+* Esta funcion implementa la recursividad utilizando al mismo tiempo el operador condicional ?:
+* que se encarga de devolver el resultado 1 cuando n sea igual a 0 y de llamarse a si misma
+* para asi multiplicarse por si misma
 * </p>
-* @author José Chaparro
-* @param n es el número entero del cual se quiere obtener el factorial
+* @author Jose Chaparro
+* @param n es el numero entero del cual se quiere obtener el factorial
 * @return int una vez la recursividad termina, se regresa el valor total de las multiplicaciones realizadas con recursividad 
 * @since 2020-05-12
 */
@@ -733,43 +819,86 @@ void invofact(void){
     int factorialValido=0;
     do{
         try {
-            cout << "Dame el número del cual quieres su factorial \n";
+            cout << "Dame el nÃºmero del cual quieres su factorial \n";
             cin >> factoria;
-            if (!isValidInt(factoria))
+            if (!isValidInt(factoria) || stoi(factoria)<0)
                 throw 1;
+                
+            factorialValido=stoi(factoria);
+    
+   			cout << factorialValido << "! = " << factorial(factorialValido) << endl;
         }
 
-        catch(int excepcionNumInvlaido){
-            if (excepcionNumInvlaido == 1) cout << "Error, el número ingresado debe ser entero positivo \n";
+        catch(int excepcionNumInvalido){
+            if (excepcionNumInvalido == 1) cout << "Error, el nÃºmero ingresado debe ser entero positivo \n";
         }
 
-    }while(!isValidInt(factoria));
+    }while(!isValidInt(factoria) || stoi(factoria)<0);
     
-    factorialValido=stoi(factoria);
-    
-    cout << factorialValido << "! = " << factorial(factorialValido) << endl;
 }
 
 void doublelog(void){
-    double base,x;
-    cout << "Ingrese la base" << endl;
-    cin >> base;
-    cout << "Ingrese el numero al que quiere calcular el logaritmo" << endl;
-    cin >> x;
-    cout << "log base " << base << " de " << x << " = " << (double)(log(x) / log(base)) << endl;
+    float base, x;
+    string bases, xs;
+    
+    cout << "Ingrese la base " << endl;
+    
+    do {
+    	cin >> bases;
+    	try {
+    		if (!isValidFloat(bases) || (stof(bases)<=0) || (stof(bases)==1))
+    			throw "Ingrese un nÃºmero vÃ¡lido, no estÃ¡n definidos valores negativos, el cero, ni el uno como bases";
+    		base=stof(bases);
+		}
+		catch (const char *exceptionNumInvalido) {
+			cout << exceptionNumInvalido << "\n";
+		}	
+	}
+	while (!isValidFloat(bases) || (stof(bases)<=0) || (stof(bases)==1));
+    cout << "Ingrese el nÃºmero al que quiere calcular el logaritmo" << endl;
+    
+    do {
+    	cin >> xs;
+    	try {
+    		if (!isValidFloat(xs) || (stof(xs)<=0)){
+    			throw "Ingrese un nÃºmero vÃ¡lido, no estÃ¡n definidos logaritmos para valores iguales o menores a cero";
+				}
+    		x=std::stof(xs);
+		}
+		catch (const char *exceptionNumInvalido) {
+			cout << exceptionNumInvalido << "\n";
+		}
+	}
+	while (!isValidFloat(xs) || std::stof(xs)<=0);
+    cout << "log base " << base << " de " << x << " = " << (float)(log(x) / log(base)) << endl;
 }
 
 void natlog(void){
     double x;
-    cout << "Ingrese el numero para calcular el logaritmo natural" << endl;
-    cin >> x;
+    string xs;
+    cout << "Ingrese el nÃºmero para calcular el logaritmo natural" << endl;
+    
+    //TODO: Evitar ciclo por "F"
+    do {
+    	cin >> xs;
+    	try {
+    		if (!isValidFloat(xs) || (stof(xs)<=0))
+    			throw "Ingrese un nÃºmero vÃ¡lido, no estÃ¡n definidos logaritmos naturales para valores iguales o menores a cero";
+    		x=stod(xs);
+		}
+		catch (const char *exceptionNumInvalido) {
+			cout << exceptionNumInvalido << "\n";
+		}
+    	
+	}
+	while (!isValidFloat(xs) || (stof(xs)<=0));
     cout << "Ln("<<x<<") = " << log(x) << endl;
 }
 
 void formulaGeneral(){
-    //Se pedirá los valores de la fórmula:
-    //axÂ² + bx + c;
-    //Y después se utilizará la fórmula general
+    //Se pedira los valores de la formula:
+    //axA2 + bx + c;
+    //Y despues se utilizara la formula general
     
     int ax, bx, c, colchon,colchon2;
     do{
@@ -778,7 +907,7 @@ void formulaGeneral(){
         cin >> ax;
         
         if (ax==0){
-            throw "Ingrese un número diferente de cero";
+            throw "Ingrese un nÃºmero diferente de cero";
         }
         }catch(...){
             
@@ -787,7 +916,7 @@ void formulaGeneral(){
         cin >> bx;
         cout << "Ingrese cX" << endl;
         //try{
-            //dentro de la raíz
+            //dentro de la raiz
             colchon= pow(bx,2) - (4*ax*c);
             if (colchon<0){
                 cout << "(" << -bx << "+sqrt" << colchon << ")/" << 2*ax << endl;
